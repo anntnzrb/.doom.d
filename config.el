@@ -6,6 +6,7 @@
 (load! "lib/env.el")
 (load! "lib/ui.el")
 (load! "lib/editor.el")
+(load! "lib/completion.el")
 (load! "lib/ai.el")
 
 ;; programming languages
