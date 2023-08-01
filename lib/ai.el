@@ -7,7 +7,7 @@
 ;;; Code:
 
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
+  :hook ((text-mode prog-mode) . #'copilot-mode)
   :bind (:map copilot-completion-map
               ("<tab>" . 'copilot-accept-completion)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
