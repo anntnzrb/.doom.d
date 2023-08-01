@@ -52,6 +52,7 @@
        org
        (rust +lsp +tree-sitter)
        (sh +lsp +tree-sitter)
+       yaml
 
        :config
        (default +bindings +smartparens))
