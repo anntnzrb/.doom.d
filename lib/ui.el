@@ -32,7 +32,7 @@
       (modus-themes-load-vivendi))))
 
 (let* ((main-font      "mononoki")
-       (main-font-size         16)
+       (main-font-size         18)
        (main-font-weight 'regular)
 
        (variable-pitch-font        "Iosevka")
@@ -40,7 +40,7 @@
        (variable-pitch-font-weight main-font-weight)
 
        (big-font        main-font)
-       (big-font-size   (+ main-font-size 4))
+       (big-font-size   (* main-font-size 2))
        (big-font-weight main-font-weight))
   (setq doom-font
         (font-spec
