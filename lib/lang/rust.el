@@ -1,9 +1,5 @@
 ;;; $DOOMDIR/lib/lang/rust.el -*- lexical-binding: t; -*-
 
-;;; Commentary:
-;;
-;; Rust configurations.
-;;
 ;;; Code:
 
 (use-package! rustic

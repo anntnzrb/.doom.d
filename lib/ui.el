@@ -1,9 +1,9 @@
 ;;; $DOOMDIR/lib/ui.el -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
+
 ;; UI related settings
-;;
+
 ;;; Code:
 
 (setq doom-theme 'nil)

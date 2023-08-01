@@ -1,9 +1,9 @@
 ;;; $DOOMDIR/lib/ai.el -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
+
 ;; AI-related configurations.
-;;
+
 ;;; Code:
 
 (use-package! copilot

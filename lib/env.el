@@ -1,9 +1,9 @@
 ;;; $DOOMDIR/lib/env.el -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
+
 ;; Environment related configurations.
-;;
+
 ;;; Code:
 
 (defun append-path (path)

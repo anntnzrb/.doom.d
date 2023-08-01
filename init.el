@@ -1,10 +1,10 @@
 ;;; $DOOMDIR/init.el -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;
+
 ;; This file controls what Doom modules are enabled and what order they load in.
 ;; Remember running 'doom sync' after modification.
-;;
+
 ;;; Code:
 
 (doom! :input
