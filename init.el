@@ -49,6 +49,7 @@
        tty
 
        :lang
+       (clojure +lsp +tree-sitter)
        emacs-lisp
        org
        (rust +lsp +tree-sitter)
