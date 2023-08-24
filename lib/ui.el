@@ -18,7 +18,6 @@
   (setq modus-themes-mode-line         '(accented borderless))
   (setq modus-themes-org-blocks        'greyscale)
   (setq modus-themes-paren-match       '(bold underline))
-  (setq modus-themes-lang-checkers     'straight-underline)
   (setq modus-themes-bold-constructs   t)
   (setq modus-themes-italic-constructs t)
 
