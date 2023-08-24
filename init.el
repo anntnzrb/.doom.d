@@ -38,6 +38,7 @@
        (syntax +childframe)
 
        :tools
+       direnv
        (eval +overlay)
        (lookup +dictionary)
        (lsp +peek)
