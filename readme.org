@@ -91,6 +91,22 @@ Tool =mise= was previously known as =rtx=.
   (setopt use-package-hook-name-suffix nil))
 #+end_src
 
+* Essentials
+
+These settings are just general, they do not belong anywhere specifically or
+deserve a unique section.
+
+#+begin_src emacs-lisp
+(use-package! emacs
+  :config
+  (setopt display-line-numbers-type 'relative))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! highlight-indent-guides
+  :config
+  (setopt highlight-indent-guides-method 'bitmap))
+#+end_src
 * Windows & Buffers
 
 #+begin_src emacs-lisp
@@ -130,7 +146,7 @@ Tool =mise= was previously known as =rtx=.
   (setopt doom-theme nil)
 
   :config
-  (ef-themes-load-random 'light))
+  (ef-themes-load-random 'dark))
 #+end_src
 
 ** Themes
@@ -164,19 +180,13 @@ Tool =mise= was previously known as =rtx=.
                        :weight big-font-weight))))
 #+end_src
 
-* Essentials
-
-These settings are just general, they do not belong anywhere specifically or
-deserve a unique section.
+* Org
 
 #+begin_src emacs-lisp
-(use-package! emacs
-  :config
-  (setopt display-line-numbers-type 'relative))
+(use-package! org
+  :bind
+  (:map goto-map
+        ("o" . consult-outline)))
 #+end_src
 
-#+begin_src emacs-lisp
-(use-package! highlight-indent-guides
-  :config
-  (setopt highlight-indent-guides-method 'bitmap))
-#+end_src
+
