@@ -1,0 +1,142 @@
+#+title:  annt's Doom Configuration for GNU Emacs
+#+author: anntnzrb
+#+email:  anntnzrb@protonmail.com
+
+#+language: en
+#+startup:  content indent
+#+options:  toc:nil author:t email:t
+#+property: header-args :results silent
+
+# macros
+#+macro: export-date (eval (format-time-string "%F" (current-time)))
+
+#+macro: emacs-version        (eval emacs-version)
+#+macro: doom-version         (eval doom-version)
+#+macro: doom-modules-version (eval doom-modules-version)
+
+#+macro: system-features (eval system-configuration-features)
+
+- Last update: *{{{export-date}}}*
+
+- /GNU Emacs/ system details
+  - version: *{{{emacs-version}}}*
+  - build features: *{{{system-features}}}*
+
+- /Doom Emacs/ details
+  - version: *{{{doom-version}}}*
+  - modules version: *{{{doom-modules-features}}}*
+
+* Preamble
+
+The following are just the headers for both to-be-generated =config.el= and
+=packages.el= files.
+
+#+begin_src emacs-lisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+#+end_src
+
+#+begin_src emacs-lisp :tangle "packages.el"
+;; -*- no-byte-compile: t; -*-
+;;; $DOOMDIR/packages.el
+#+end_src
+
+* ~use-package~
+
+#+begin_src emacs-lisp
+(use-package! use-package
+  :config
+  (setopt use-package-always-defer t)
+
+  ;; force using the "-hook" suffix, this should be default...
+  (setopt use-package-hook-name-suffix nil))
+#+end_src
+
+* Windows & Buffers
+
+#+begin_src emacs-lisp
+(use-package! emacs
+  :bind
+  (:map ctl-x-map
+        ("C-b" . ibuffer)))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! ace-window
+  :config
+  (setopt aw-keys '(?q ?a ?e ?d ?f ?g ?h ?j ?k ?l)))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! embark
+  :bind
+  (:map global-map
+        ("C-<escape>" . embark-act)))
+#+end_src
+
+* Appearance
+
+** Fonts
+
+| [[https://github.com/protesilaos/ef-themes][ef-themes]] | Colourful and legible themes for GNU Emacs |
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! ef-themes)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! ef-themes
+  :demand t
+  :init
+  (setopt doom-theme nil)
+
+  :config
+  (ef-themes-load-random 'light))
+#+end_src
+
+** Themes
+
+#+begin_src emacs-lisp
+(use-package! emacs
+  :config
+  (let* ((main-font        "Iosevka Comfy Motion")
+         (main-font-size   16)
+         (main-font-weight 'regular)
+
+         (variable-pitch-font        "Iosevka Comfy Duo")
+         (variable-pitch-font-size   main-font-size)
+         (variable-pitch-font-weight main-font-weight)
+
+         (big-font        main-font)
+         (big-font-size   (* main-font-size 2))
+         (big-font-weight main-font-weight))
+
+    (setopt doom-font
+            (font-spec :family main-font
+                       :size   main-font-size
+                       :weight main-font-weight))
+    (setopt doom-variable-pitch-font
+            (font-spec :family variable-pitch-font
+                       :size   variable-pitch-font-size
+                       :weight variable-pitch-font-weight))
+    (setopt doom-big-font
+            (font-spec :family big-font
+                       :size   big-font-size
+                       :weight big-font-weight))))
+#+end_src
+
+* Essentials
+
+These settings are just general, they do not belong anywhere specifically or
+deserve a unique section.
+
+#+begin_src emacs-lisp
+(use-package! emacs
+  :config
+  (setopt display-line-numbers-type 'relative))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! highlight-indent-guides
+  :config
+  (setopt highlight-indent-guides-method 'bitmap))
+#+end_src

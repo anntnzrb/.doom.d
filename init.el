@@ -1,60 +1,57 @@
-;;; $DOOMDIR/init.el -*- lexical-binding: t; -*-
+;;; init.el -*- lexical-binding: t; -*-
 
-;;; Commentary:
+(setopt +literate-config-file (file-name-concat doom-user-dir "readme.org"))
 
-;; This file controls what Doom modules are enabled and what order they load in.
-;; Remember running 'doom sync' after modification.
+(doom! 
+ :os
+ tty
 
-;;; Code:
+ :completion
+ (company +childframe)
+ (vertico +childframe +icons)
 
-(doom! :input
-       :completion
-       (company +childframe)
-       (vertico +childframe +icons)
+ :ui
+ (doom)
+ (hl-todo)
+ (indent-guides)
+ (ligatures)
+ (modeline)
+ (nav-flash)
+ (ophints)
+ (popup +defaults)
+ (window-select)
 
-       :ui
-       doom
-       doom-dashboard
-       (emoji +ascii +unicode +github) ; 🙂
-       hl-todo
-       indent-guides
-       ligatures
-       modeline
-       ophints
-       (popup +defaults)
-       (treemacs +lsp)
+ :editor
+ (evil +everywhere)
+ (format +onsave)
+ (parinfer)
 
-       :editor
-       (evil +everywhere)
-       file-templates
-       snippets
+ :emacs
+ (dired +icons)
+ (ibuffer +icons)
 
-       :emacs
-       (dired +icons)
-       (ibuffer +icons)
-       vc
+ :checkers
+ (spell +flyspell +hunspell)
 
-       :checkers
-       (syntax +childframe)
+ :tools
+ ;;direnv
+ (lookup +dictionary +docset +offline) ;; REVIEW: perf
+ (eval +overlay) ;; TODO: tweak
+ (lsp +peek) ;; TODO: tweak
+ magit
+ tree-sitter
 
-       :tools
-       direnv
-       (eval +overlay)
-       (lookup +dictionary)
-       (lsp +peek)
-       magit
-       tree-sitter
+ :lang
+ (cc +tree-sitter +lsp)
+ (haskell +tree-sitter +lsp)
+ (json +tree-sitter +lsp)
+ (markdown)
+ (org +pandoc)
+ (rust +tree-sitter +lsp)
+ (sh +tree-sitter +lsp)
+ (yaml +tree-sitter +lsp)
+ ;;(scheme +guile)   ; a fully conniving family of lisps
 
-       :os
-       tty
-
-       :lang
-       (clojure +lsp +tree-sitter)
-       emacs-lisp
-       org
-       (rust +lsp +tree-sitter)
-       (sh +lsp +tree-sitter)
-       yaml
-
-       :config
-       (default +bindings +smartparens))
+ :config
+ literate
+ (default +bindings +smartparens))

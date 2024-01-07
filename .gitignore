@@ -1,0 +1,8 @@
+# ignore everything except for self and a few files
+/*
+!.gitignore
+!COPYING
+
+!readme.org
+!init.el
+!bootstrap.sh
