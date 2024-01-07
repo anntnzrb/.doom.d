@@ -40,7 +40,47 @@ The following are just the headers for both to-be-generated =config.el= and
 ;;; $DOOMDIR/packages.el
 #+end_src
 
+** Helpers and auxiliaries
+
+*** Environment
+
+The following serves adding directories to the system's =PATH= that may contain
+executables you want Emacs to be able to use.
+
+Examples:
+
+- Nix
+- Rust's Cargo
+- Haskell's GHCup
+
+#+begin_src emacs-lisp :tangle no
+(annt/add-exec-paths '("~/.local/scripts"))
+#+end_src
+
+#+begin_src emacs-lisp
+;;;###autoload
+(defun annt/add-exec-paths (paths)
+  "Add each path in PATHS to the `exec-path' and 'PATH' environment variable.
+   If a path is not a directory, a warning is issued."
+  (dolist (path paths)
+    (let ((expanded-path (expand-file-name path)))
+      (if (file-directory-p expanded-path)
+          (progn
+            (add-to-list 'exec-path expanded-path)
+            (setenv "PATH" (concat (getenv "PATH") path-separator expanded-path)))
+        (warn "Warning: %s is not a directory" expanded-path)))))
+#+end_src
+
+Now, let's add [[https://github.com/jdx/mise][mise]]'s shims to =PATH= so we have the installed tools in here as well.
+Tool =mise= was previously known as =rtx=.
+
+#+begin_src emacs-lisp
+(annt/add-exec-paths '("~/.local/share/mise/shims"))
+#+end_src
+
 * ~use-package~
+
+*NOTE*: Set this before configuring anything else that uses ~use-package~.
 
 #+begin_src emacs-lisp
 (use-package! use-package
