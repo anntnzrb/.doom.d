@@ -180,6 +180,35 @@ deserve a unique section.
                        :weight big-font-weight))))
 #+end_src
 
+** Modeline
+
+#+begin_src emacs-lisp
+(use-package! doom-modeline
+  :config
+  (setopt doom-modeline-icon t)
+
+  ;; buffer
+  (setopt doom-modeline-buffer-name                    t)
+  (setopt doom-modeline-buffer-encoding                t)
+  (setopt doom-modeline-buffer-state-icon              t)
+  (setopt doom-modeline-buffer-modification-icon       t)
+  (setopt doom-modeline-highlight-modified-buffer-name t)
+
+  (setopt doom-modeline-column-zero-based nil)
+  (setopt doom-modeline-total-line-number t)
+
+  ;; modal
+  (setopt doom-modeline-modal                      t)
+  (setopt doom-modeline-modal-icon                 t)
+  (setopt doom-modeline-modal-modern-icon          t)
+  (setopt doom-modeline-always-show-macro-register t)
+
+  ;; modes
+  (setopt doom-modeline-major-mode-icon       t)
+  (setopt doom-modeline-major-mode-color-icon t)
+  (setopt doom-modeline-minor-modes           nil))
+#+end_src
+
 * Org
 
 #+begin_src emacs-lisp
