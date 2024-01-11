@@ -43,14 +43,12 @@
 
  :lang
  (cc +tree-sitter +lsp)
- (haskell +tree-sitter +lsp)
  (json +tree-sitter +lsp)
  (markdown)
  (org +pandoc)
  (rust +tree-sitter +lsp)
  (sh +tree-sitter +lsp)
  (yaml +tree-sitter +lsp)
- ;;(scheme +guile)   ; a fully conniving family of lisps
 
  :config
  literate
