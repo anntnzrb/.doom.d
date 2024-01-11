@@ -209,6 +209,17 @@ deserve a unique section.
   (setopt doom-modeline-minor-modes           nil))
 #+end_src
 
+
+* Programming
+
+** Rust
+
+#+begin_src emacs-lisp
+(use-package! rustic
+  :config
+  (setopt rustic-format-trigger 'on-save))
+#+end_src
+
 * Org
 
 #+begin_src emacs-lisp
