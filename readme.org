@@ -218,4 +218,17 @@ deserve a unique section.
         ("o" . consult-outline)))
 #+end_src
 
+* AI
 
+| [[https://github.com/copilot-emacs/copilot.el][copilot.el]] | Unofficial Copilot plugin for Emacs  |
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! copilot
+  :bind (:map copilot-completion-map
+              ("M-<tab>" . copilot-accept-completion-by-word)))
+#+end_src
