@@ -75,7 +75,8 @@ Now, let's add [[https://github.com/jdx/mise][mise]]'s shims to =PATH= so we hav
 Tool =mise= was previously known as =rtx=.
 
 #+begin_src emacs-lisp
-(annt/add-exec-paths '("~/.local/share/mise/shims"))
+(when (executable-find "mise")
+ (annt/add-exec-paths '("~/.local/share/mise/shims")))
 #+end_src
 
 * ~use-package~
@@ -208,7 +209,6 @@ deserve a unique section.
   (setopt doom-modeline-major-mode-color-icon t)
   (setopt doom-modeline-minor-modes           nil))
 #+end_src
-
 
 * Programming
 
