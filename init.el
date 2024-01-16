@@ -34,7 +34,7 @@
  (spell +flyspell +hunspell)
 
  :tools
- ;;direnv
+ direnv
  (lookup +dictionary +docset +offline) ;; REVIEW: perf
  (eval +overlay) ;; TODO: tweak
  (lsp +peek) ;; TODO: tweak
@@ -45,6 +45,7 @@
  (cc +tree-sitter +lsp)
  (json +tree-sitter +lsp)
  (markdown)
+ (nix +tree-sitter +lsp)
  (org +pandoc)
  (rust +tree-sitter +lsp)
  (sh +tree-sitter +lsp)

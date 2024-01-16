@@ -220,6 +220,14 @@ deserve a unique section.
   (setopt rustic-format-trigger 'on-save))
 #+end_src
 
+** Nix
+
+#+begin_src emacs-lisp
+(use-package! lsp-nix
+  :config
+  (setopt lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+#+end_src
+
 * Org
 
 #+begin_src emacs-lisp
