@@ -237,6 +237,14 @@ deserve a unique section.
         ("o" . consult-outline)))
 #+end_src
 
+* Dired
+
+#+begin_src emacs-lisp
+(use-package! dired
+  :init
+  (add-hook! 'dired-mode-hook '(dired-hide-details-mode hl-line-mode)))
+#+end_src
+
 * AI
 
 | [[https://github.com/copilot-emacs/copilot.el][copilot.el]] | Unofficial Copilot plugin for Emacs  |
