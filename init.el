@@ -4,7 +4,7 @@
 
 (doom! 
  :os
- tty
+ (tty)
 
  :completion
  (company +childframe)
@@ -34,16 +34,17 @@
  (spell +flyspell +hunspell)
 
  :tools
- direnv
+ (direnv)
  (lookup +dictionary +docset +offline) ;; REVIEW: perf
  (eval +overlay) ;; TODO: tweak
  (lsp +peek) ;; TODO: tweak
- magit
- tree-sitter
+ (magit)
+ (tree-sitter)
 
  :lang
  (cc +tree-sitter +lsp)
  (json +tree-sitter +lsp)
+ (lua +tree-sitter +lsp)
  (markdown)
  (nix +tree-sitter +lsp)
  (org +pandoc)
@@ -52,5 +53,5 @@
  (yaml +tree-sitter +lsp)
 
  :config
- literate
+ (literate)
  (default +bindings +smartparens))
