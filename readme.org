@@ -108,6 +108,7 @@ deserve a unique section.
   :config
   (setopt highlight-indent-guides-method 'bitmap))
 #+end_src
+
 * Windows & Buffers
 
 #+begin_src emacs-lisp
@@ -132,7 +133,7 @@ deserve a unique section.
 
 * Appearance
 
-** Fonts
+** Themes
 
 | [[https://github.com/protesilaos/ef-themes][ef-themes]] | Colourful and legible themes for GNU Emacs |
 
@@ -150,35 +151,95 @@ deserve a unique section.
   (ef-themes-load-random 'dark))
 #+end_src
 
-** Themes
+** Fonts
 
 #+begin_src emacs-lisp
-(use-package! emacs
+(use-package! faces
+  :demand t
   :config
-  (let* ((main-font        "Iosevka Comfy Motion")
-         (main-font-size   16)
-         (main-font-weight 'regular)
+  (add-hook! 'text-mode-hook '(variable-pitch-mode)))
+#+end_src
 
-         (variable-pitch-font        "Iosevka Comfy Duo")
-         (variable-pitch-font-size   main-font-size)
-         (variable-pitch-font-weight main-font-weight)
+# #+begin_src emacs-lisp
+# (use-package! emacs
+#   :config
+#   (let* ((main-font        "Iosevka Comfy Motion")
+#          (main-font-size   16)
+#          (main-font-weight 'regular)
 
-         (big-font        main-font)
-         (big-font-size   (* main-font-size 2))
-         (big-font-weight main-font-weight))
+#          (variable-pitch-font        "Iosevka Comfy Duo")
+#          (variable-pitch-font-size   main-font-size)
+#          (variable-pitch-font-weight main-font-weight)
 
-    (setopt doom-font
-            (font-spec :family main-font
-                       :size   main-font-size
-                       :weight main-font-weight))
-    (setopt doom-variable-pitch-font
-            (font-spec :family variable-pitch-font
-                       :size   variable-pitch-font-size
-                       :weight variable-pitch-font-weight))
-    (setopt doom-big-font
-            (font-spec :family big-font
-                       :size   big-font-size
-                       :weight big-font-weight))))
+#          (big-font        main-font)
+#          (big-font-size   (* main-font-size 2))
+#          (big-font-weight main-font-weight))
+
+#     (setopt doom-font
+#             (font-spec :family main-font
+#                        :size   main-font-size
+#                        :weight main-font-weight))
+#     (setopt doom-variable-pitch-font
+#             (font-spec :family variable-pitch-font
+#                        :size   variable-pitch-font-size
+#                        :weight variable-pitch-font-weight))
+#     (setopt doom-big-font
+#             (font-spec :family big-font
+#                        :size   big-font-size
+#                        :weight big-font-weight))))
+# #+end_src
+
+| [[https://github.com/protesilaos/fontaine][fontaine]] | Font configurations using presets |
+
+#+begin_src emacs-lisp :tangle "packages.el"
+(package! fontaine)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package! fontaine
+  :demand t
+  :init
+  (setq-default text-scale-remap-header-line t)
+
+  (setopt fontaine-presets
+          '(;
+            (iosevka-mononoki
+             :default-family "mononoki"
+             :variable-pitch-family "Iosevka Comfy Motion"
+             :variable-pitch-weight semilight)
+
+
+            ;; fallback
+            (default)
+            (t
+             :default-family nil
+             :default-weight regular
+             :default-height 120
+
+             :variable-pitch-family nil
+             :variable-pitch-weight nil
+             :variable-pitch-height 1.0
+
+             :fixed-pitch-family nil
+             :fixed-pitch-weight nil
+             :fixed-pitch-height 1.0
+
+             :fixed-pitch-serif-family nil
+             :fixed-pitch-serif-weight nil
+             :fixed-pitch-serif-height 1.0
+
+             :bold-family nil
+             :bold-weight bold
+             :italic-family nil
+             :italic-slant italic
+
+             :line-spacing nil)))
+
+  ;; Set last preset or fall back to desired style from `fontaine-presets'.
+  (fontaine-set-preset (or (fontaine-restore-latest-preset) 'default))
+
+  (add-hook! 'kill-emacs-hook        '(fontaine-store-latest-preset))
+  (add-hook! 'enable-theme-functions '(fontaine-apply-current-preset)))
 #+end_src
 
 ** Modeline
