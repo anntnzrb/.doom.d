@@ -253,6 +253,7 @@ deserve a unique section.
   (setopt doom-modeline-buffer-name                    t)
   (setopt doom-modeline-buffer-encoding                t)
   (setopt doom-modeline-buffer-state-icon              t)
+  (setopt doom-modeline-buffer-file-name-style         'truncate-with-project)
   (setopt doom-modeline-buffer-modification-icon       t)
   (setopt doom-modeline-highlight-modified-buffer-name t)
 
