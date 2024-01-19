@@ -6,6 +6,9 @@
  :os
  (tty)
 
+ :term
+ (vterm)
+
  :completion
  (company +childframe)
  (vertico +childframe +icons)
