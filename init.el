@@ -11,7 +11,7 @@
 
  :completion
  (company +childframe)
- (vertico +childframe +icons)
+ (vertico +icons)
 
  :ui
  (doom)
