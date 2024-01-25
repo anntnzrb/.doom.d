@@ -1,5 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+;; Reference: <https://github.com/doomemacs/doomemacs/tree/master/modules>
+
 (setopt +literate-config-file (file-name-concat doom-user-dir "readme.org"))
 
 (doom! 
