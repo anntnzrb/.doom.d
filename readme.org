@@ -265,6 +265,23 @@ deserve a unique section.
   (setopt rustic-format-trigger 'on-save))
 #+end_src
 
+** Lua
+
+#+begin_src emacs-lisp
+(use-package! lsp-lua
+  :config
+  (setopt lsp-clients-lua-language-server-bin (executable-find "lua-language-server")))
+#+end_src
+
+
+** Haskell
+
+#+begin_src emacs-lisp
+(use-package! lsp-haskell
+  :config
+  (setopt lsp-haskell-formatting-provider "ormolu"))
+#+end_src
+
 ** Nix
 
 #+begin_src emacs-lisp

@@ -28,7 +28,7 @@
 
  :editor
  (evil +everywhere)
- (format +onsave)
+ (format)
  (parinfer)
 
  :emacs
@@ -40,21 +40,23 @@
 
  :tools
  (direnv)
- (lookup +dictionary +docset +offline) ;; REVIEW: perf
- (eval +overlay) ;; TODO: tweak
- (lsp +peek) ;; TODO: tweak
+ (lookup +dictionary +docset +offline)
+ (eval +overlay)
+ (lsp +peek)
  (magit)
  (tree-sitter)
 
  :lang
  (cc +tree-sitter +lsp)
- (json +tree-sitter +lsp)
  (lua +tree-sitter +lsp)
- (markdown)
  (nix +tree-sitter +lsp)
- (org +pandoc)
  (rust +tree-sitter +lsp)
  (sh +tree-sitter +lsp)
+
+ ;; misc
+ (json +tree-sitter +lsp)
+ (markdown)
+ (org +pandoc)
  (yaml +tree-sitter +lsp)
 
  :config
