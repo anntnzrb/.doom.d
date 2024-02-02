@@ -48,6 +48,7 @@
 
  :lang
  (cc +tree-sitter +lsp)
+ (haskell +tree-sitter +lsp)
  (lua +tree-sitter +lsp)
  (nix +tree-sitter +lsp)
  (rust +tree-sitter +lsp)

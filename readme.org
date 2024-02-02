@@ -265,21 +265,12 @@ deserve a unique section.
   (setopt rustic-format-trigger 'on-save))
 #+end_src
 
-** Lua
-
-#+begin_src emacs-lisp
-(use-package! lsp-lua
-  :config
-  (setopt lsp-clients-lua-language-server-bin (executable-find "lua-language-server")))
-#+end_src
-
-
 ** Haskell
 
 #+begin_src emacs-lisp
-(use-package! lsp-haskell
+(use-package! haskell-mode
   :config
-  (setopt lsp-haskell-formatting-provider "ormolu"))
+  (set-formatter! 'ormolu '("ormolu" "--stdin-input-file" ".") :modes '(haskell-mode)))
 #+end_src
 
 ** Nix
