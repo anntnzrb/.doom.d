@@ -276,9 +276,9 @@ deserve a unique section.
 ** Nix
 
 #+begin_src emacs-lisp
-(use-package! lsp-nix
+(use-package! nix-mode
   :config
-  (setopt lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+  (set-formatter! 'nixpkgs-fmt '("nixpkgs-fmt") :modes '(nix-mode)))
 #+end_src
 
 * Org
