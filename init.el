@@ -42,7 +42,7 @@
  (direnv)
  (lookup +dictionary +docset +offline)
  (eval +overlay)
- (lsp +peek)
+ (lsp +eglot)
  (magit)
  (tree-sitter)
 
