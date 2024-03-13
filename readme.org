@@ -53,13 +53,12 @@ The following are just the headers for both to-be-generated =config.el= and
   (setopt use-package-hook-name-suffix nil))
 #+end_src
 
-
 ** Helpers and auxiliaries
 
 *** Environment
 
-The following serves adding directories to the system's =PATH= that may contain
-executables you want Emacs to be able to use.
+The following enables the addition of directories to the system's =PATH=, which
+may contain binaries accessible by Emacs.
 
 Examples:
 
@@ -147,7 +146,7 @@ deserve a unique section.
 
 ** Themes
 
-| [[https://github.com/protesilaos/ef-themes][ef-themes]] | Colourful and legible themes for GNU Emacs |
+| [[https://github.com/protesilaos/ef-themes][ef-themes]] | Colorful and legible themes for GNU Emacs |
 
 #+begin_src emacs-lisp :tangle "packages.el"
 (package! ef-themes)
@@ -314,4 +313,13 @@ deserve a unique section.
 (use-package! copilot
   :bind (:map copilot-completion-map
               ("M-<tab>" . copilot-accept-completion-by-word)))
+#+end_src
+* Spell
+
+#+begin_src emacs-lisp
+(use-package! flyspell
+  :bind (:map flyspell-mode-map
+              ("C-?" . flyspell-correct-at-point)
+              ("C-<" . (lambda () (interactive) (flyspell-goto-next-error 1)))
+              ("C->" . flyspell-goto-next-error)))
 #+end_src

@@ -36,7 +36,7 @@
  (ibuffer +icons)
 
  :checkers
- (spell +flyspell +hunspell)
+ (spell +flyspell +aspell)
 
  :tools
  (direnv)
