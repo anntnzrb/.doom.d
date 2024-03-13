@@ -180,9 +180,8 @@ deserve a unique section.
 
 #+begin_src emacs-lisp
 (use-package! fontaine
-  :demand t
   :init
-  (setq-default text-scale-remap-header-line t)
+  (setopt text-scale-remap-header-line t)
 
   (setopt fontaine-presets
           '(;
@@ -191,13 +190,17 @@ deserve a unique section.
              :variable-pitch-family "Iosevka Comfy Motion"
              :variable-pitch-weight semilight)
 
+            (mononoki-iosevka
+             :default-family "Iosevka Comfy Motion"
+             :variable-pitch-family "mononoki"
+             :variable-pitch-weight semilight)
 
             ;; fallback
             (default)
             (t
              :default-family nil
              :default-weight regular
-             :default-height 120
+             :default-height 130
 
              :variable-pitch-family nil
              :variable-pitch-weight nil
@@ -221,8 +224,8 @@ deserve a unique section.
   ;; Set last preset or fall back to desired style from `fontaine-presets'.
   (fontaine-set-preset (or (fontaine-restore-latest-preset) 'default))
 
-  (add-hook! 'kill-emacs-hook        '(fontaine-store-latest-preset))
-  (add-hook! 'enable-theme-functions '(fontaine-apply-current-preset)))
+  (add-hook 'kill-emacs-hook        #'fontaine-store-latest-preset)
+  (add-hook 'enable-theme-functions #'fontaine-apply-current-preset))
 #+end_src
 
 ** Modeline
